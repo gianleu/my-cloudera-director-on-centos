@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>4a77bb82-3cbe-419f-8f8e-661eb258c2a9</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkIdentifier>Deployment</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>1.0</TargetFrameworkVersion>
+    <PrepareForBuildDependsOn>
+    </PrepareForBuildDependsOn>
+  </PropertyGroup>
+  <Import Condition=" Exists('Deployment.targets') " Project="Deployment.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- vertag<:>start tokens<:>maj.min -->
+  <Import Condition=" Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets') " Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets" />
+  <!-- vertag<:>end -->
+  <ItemGroup>
+    <Content Include="shared-resources-existing-vnet.json" />
+    <Content Include="azuredeploy.parameters.json" />
+    <None Include="azuredeploy.json" />
+    <None Include="Deployment.targets">
+      <Visible>False</Visible>
+    </None>
+    <Content Include="Deploy-AzureResourceGroup.ps1" />
+    <None Include="director-node-and-shared-resources.json" />
+    <None Include="network-restart-existing-vnet.json" />
+    <None Include="network-restart-new-vnet.json" />
+    <None Include="prepare-conf-launch-cluster.json" />
+    <None Include="scripts\azure.simple.conf" />
+    <None Include="scripts\director_user_passwd.py" />
+    <None Include="scripts\initialize-director-server.sh" />
+    <None Include="scripts\initialize-dns-server.sh" />
+    <None Include="scripts\initialize-mysql-server.sh" />
+    <None Include="scripts\marketing.py" />
+    <None Include="scripts\prepare-director-conf.py" />
+    <None Include="scripts\prepare-mysql-disks.sh" />
+    <None Include="scripts\requirements.txt" />
+    <None Include="scripts\setup-default.py" />
+    <None Include="scripts\update-vm-dns.sh" />
+    <None Include="shared-resources-new-vnet.json" />
+    <None Include="update-existing-vnet-dns.json" />
+    <None Include="update-new-vnet-dns.json" />
+  </ItemGroup>
+  <Target Name="GetReferenceAssemblyPaths" />
+</Project>
